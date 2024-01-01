@@ -104,6 +104,8 @@ def safe_get(d: dict, *keys: Hashable, default=None):
 
 def clean_filename(fn: str, restrict=False) -> str:
     path = sanitize_filename(fn)
+    # Replace ":" with "_"
+    path = path.replace(":", "_")
     if restrict:
         from string import printable
 
